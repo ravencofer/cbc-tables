@@ -10,22 +10,45 @@
 
 <label>JOB NAME: <input name="job_name"></label>
 <label>
-  <select name="occ_type">
+  <select name="occ-cat" id="occ-cat">
     <option> Agricultural building </option>
     <option> Business areas </option>
-    <option> Day care </option>
+    <option data-net="data-net"> Day care </option>
   </select>
 </label>
 
 <label>
-  <abbr title="Gross area indicates total area including walls, shafts, etc.">Gross</abbr> Area: <input name="area">
+  <span id="area-type" >Gross</span> Area: <input name="area" id="user-area">
 </label>
 
 <label>
-  Occupancy:<input readonly name="occupancy">
+  Occupancy:<input readonly name="occupancy" id="occ-calc">
 
 </label>
 
+<script>
+//make variable
+var occ_type = document.getElementById('occ-cat')
+
+//listen for an occupancy type change area label to gross or net
+occ_type.addEventListener("change",function(){
+  var selected_option = occ_type.options[occ_type.selectedIndex]
+
+  var value = "Gross"
+  if(selected_option.getAttribute("data-net")) value="Net"
+
+  document.getElementById('area-type').innerHTML=value
+})
+
+//take the user given area and divide it by the occ-cat occ factor
+var userArea = document.getElementById('user-area')
+userArea.addEventListener("change", function(){
+value = userArea.value / 300
+document.getElementById('occ-calc').value = Math.ceil(value)
+
+})
+
+</script>
 
 </body>
 </html>
