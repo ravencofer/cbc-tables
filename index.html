@@ -11,9 +11,12 @@
 <label>JOB NAME: <input name="job_name"></label>
 <label>
   <select name="occ-cat" id="occ-cat">
-    <option> Agricultural building </option>
-    <option> Business areas </option>
-    <option data-net="data-net"> Day care </option>
+   
+    {% for item in site.data["1004-1-2"] %}
+    <option> {{item.occTypeMain}} {{item.occTypeSub}} </option>
+    {% endfor %}
+
+    
   </select>
 </label>
 
