@@ -1,4 +1,4 @@
-FUNCTION OF SPACE,SUB-FUNCTION,OCCUPANT LOAD FACTOR (note a),AREA TYPE,NOTES
+occTypeMain,occTypeSub,occLoadFactor,areaType,notes
 "Accessory storage areas, mechanical equipment room",,300,gross,
 Agricultural building ,,300,gross,
 Aircraft hangars,,500,gross,
