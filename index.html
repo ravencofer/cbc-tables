@@ -8,9 +8,9 @@
 
 <h1>2016 California Building Code Tables</h1>
 
-<label>JOB NAME: <input></label>
+<label>JOB NAME: <input name="job_name"></label>
 <label>
-  <select>
+  <select name="occ_type">
     <option> Agricultural building </option>
     <option> Business areas </option>
     <option> Day care </option>
@@ -18,9 +18,14 @@
 </label>
 
 <label>
-<abbr title="Gross area indicates total area including walls, shafts, etc.">Gross</abbr> Area: <input>
+  <abbr title="Gross area indicates total area including walls, shafts, etc.">Gross</abbr> Area: <input name="area">
+</label>
+
+<label>
+  Occupancy:<input readonly name="occupancy">
 
 </label>
+
 
 </body>
 </html>
