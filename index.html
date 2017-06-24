@@ -35,6 +35,12 @@
 </label>
 
 <script>
+  
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+  
 //make variable
 var occ_type = document.getElementById('selected-occupancy')
 
@@ -44,7 +50,7 @@ occ_type.addEventListener("change",function(){
 
   var value = selected_option.getAttribute("data-area-type")
 
-  document.getElementById('area-type').innerHTML=value
+  document.getElementById('area-type').innerHTML=capitalizeFirstLetter(value)
 })
 
 //take the user given area and divide it by the occ-cat occ factor
