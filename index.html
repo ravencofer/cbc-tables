@@ -13,26 +13,10 @@
 
 <label>JOB NAME: <input name="job_name"></label>
 
-<label>
-  <select name="selected-occupancy" id="selected-occupancy">
-   
-    {% for item in site.data["1004-1-2"] %}
-    <option data-area-type = "{{item.areaType}}" data-load-factor = "{{item.occLoadFactor}}"> 
-      {{item.occTypeMain}} {{item.occTypeSub}} </option>
-    {% endfor %}
-
-    
-  </select>
-</label>
-
-<label>
-  <span id="area-type" >Gross</span> Area: <input name="area" id="user-area">
-</label>
-
-<label>
-  Occupancy:<input readonly name="occupancy" id="occ-calc">
-
-</label>
+<ul>
+  {% include item.html%}
+  {% include item.html%}
+</ul>
 
 <script>
   
