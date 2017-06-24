@@ -24,32 +24,38 @@
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+//make function
+function getOccupancyCount(item){  
   
-//make variable
-var occ_type = document.getElementById('selected-occupancy')
+  //make variable
+  var occ_type = item.querySelector('.selected-occupancy')
 
-//listen for an occupancy type change area label to gross or net
-occ_type.addEventListener("change",function(){
-  var selected_option = occ_type.options[occ_type.selectedIndex]
+  //listen for an occupancy type change area label to gross or net
+  occ_type.addEventListener("change",function(){
+    var selected_option = occ_type.options[occ_type.selectedIndex]
 
-  var value = selected_option.getAttribute("data-area-type")
+    var value = selected_option.getAttribute("data-area-type")
 
-  document.getElementById('area-type').innerHTML = capitalizeFirstLetter(value)
-})
+    item.querySelector('.area-type').innerHTML = capitalizeFirstLetter(value)
+  })
 
-//take the user given area and divide it by the occ-cat occ factor
-var userArea = document.getElementById('user-area')
-userArea.addEventListener("change", function(){
+  //take the user given area and divide it by the occ-cat occ factor
+  var userArea = item.querySelector('.user-area')
+  userArea.addEventListener("change", function(){
 
-  var selected_option = occ_type.options[occ_type.selectedIndex]
+    var selected_option = occ_type.options[occ_type.selectedIndex]
 
-  var occLoadFactor = selected_option.getAttribute("data-load-factor")
+    var occLoadFactor = selected_option.getAttribute("data-load-factor")
 
-  value = userArea.value / Number(occLoadFactor)
-document.getElementById('occ-calc').value = Math.ceil(value)
+    value = userArea.value / Number(occLoadFactor)
+  item.querySelector('.occ-calc').value = Math.ceil(value)
 
-})
-
+  })
+}
+  var list = document.querySelector('ul')
+  for(var index = 0; index < list.length; index ++){
+  getOccupancyCount(list[index])
+  }
 </script>
 
 </body>
