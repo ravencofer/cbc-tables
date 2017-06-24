@@ -36,14 +36,13 @@
 
 <script>
 //make variable
-var occ_type = document.getElementById('occ-cat')
+var occ_type = document.getElementById('selected-occupancy')
 
 //listen for an occupancy type change area label to gross or net
 occ_type.addEventListener("change",function(){
   var selected_option = occ_type.options[occ_type.selectedIndex]
 
-  var value = "Gross"
-  if(selected_option.getAttribute("data-net")) value="Net"
+  var value = selected_option.getAttribute("data-area-type")
 
   document.getElementById('area-type').innerHTML=value
 })
