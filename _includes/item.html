@@ -1,7 +1,7 @@
 <li>
 
   <label>
-    <select name="selected-occupancy" id="selected-occupancy">
+    <select name="selected-occupancy" class="selected-occupancy">
 
       {% for item in site.data["1004-1-2"] %}
       <option data-area-type = "{{item.areaType}}" data-load-factor = "{{item.occLoadFactor}}"> 
@@ -12,11 +12,11 @@
   </label>
 
   <label>
-    <span id="area-type" >Gross</span> Area: <input name="area" id="user-area">
+    <span class="area-type" >Gross</span> Area: <input name="area" class="user-area">
   </label>
 
   <label>
-    Occupancy:<input readonly name="occupancy" id="occ-calc">
+    Occupancy:<input readonly name="occupancy" class="occ-calc">
   </label>
 
 </li>
