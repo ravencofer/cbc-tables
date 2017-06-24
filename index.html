@@ -12,11 +12,13 @@
 <h1>2016 California Building Code Tables</h1>
 
 <label>JOB NAME: <input name="job_name"></label>
+
 <label>
-  <select name="occ-cat" id="occ-cat">
+  <select name="selected-occupancy" id="selected-occupancy">
    
     {% for item in site.data["1004-1-2"] %}
-    <option> {{item.occTypeMain}} {{item.occTypeSub}} </option>
+    <option data-area-type = "{{item.areaType}}" data-load-factor = "{{item.occLoadFactor}}"> 
+      {{item.occTypeMain}} {{item.occTypeSub}} </option>
     {% endfor %}
 
     
