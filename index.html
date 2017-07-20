@@ -8,8 +8,8 @@
   <meta charset="utf-8" />
   <title>2016 California Building Code Tables</title>
 </head>
-<body>
 
+<body>
 <h1 style="font-family: Arial">2016 California Building Code Tables</h1>
   <p style="font-family: Arial">Hello fellow Architects! Here is a handy online Occupancy Calculator to help with your Egress Calculations. <br>
     Note - I'm still coding this, so it is a WIP! <br>
@@ -30,42 +30,35 @@
 </ul>
 
 <script>
-  
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
-}
+  }
 
-//make function
-function getOccupancyCount(item){  
+  //make main function
+  function getOccupancyCount(item){  
   
   //make variable
   var occ_type = item.querySelector('.selected-occupancy')
 
   //listen for an occupancy type change area label to gross or net
   occ_type.addEventListener("change",function(){
-    var selected_option = occ_type.options[occ_type.selectedIndex]
-
-    var value = selected_option.getAttribute("data-area-type")
-
-    item.querySelector('.area-type').innerHTML = capitalizeFirstLetter(value)
+  var selected_option = occ_type.options[occ_type.selectedIndex]
+  var value = selected_option.getAttribute("data-area-type")
+  item.querySelector('.area-type').innerHTML = capitalizeFirstLetter(value)    
   })
 
   //take the user given area and divide it by the occ-cat occ factor
   var userArea = item.querySelector('.user-area')
   userArea.addEventListener("change", function(){
-
-    var selected_option = occ_type.options[occ_type.selectedIndex]
-
-    var occLoadFactor = selected_option.getAttribute("data-load-factor")
-
-    value = userArea.value / Number(occLoadFactor)
+  var selected_option = occ_type.options[occ_type.selectedIndex]
+  var occLoadFactor = selected_option.getAttribute("data-load-factor")
+  value = userArea.value / Number(occLoadFactor)
   item.querySelector('.occ-calc').value = Math.ceil(value)
-
   })
   
- // debugger
-  
+ // debugger (removed)
 }
+  
   var list = document.querySelectorAll('li')
   for(var index = 0; index < list.length; index ++){
   getOccupancyCount(list[index])
@@ -73,4 +66,5 @@ function getOccupancyCount(item){
 </script>
 
 </body>
+  
 </html>
